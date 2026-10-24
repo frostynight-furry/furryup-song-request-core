@@ -1,0 +1,3 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),{spawnSync}=require('node:child_process'),path=require('node:path');
+test('documented replay runs without a player, music account or external service',()=>{const result=spawnSync(process.execPath,['examples/replay.cjs'],{cwd:path.resolve(__dirname,'..'),encoding:'utf8',windowsHide:true,timeout:5000});assert.equal(result.status,0,result.stderr);const output=JSON.parse(result.stdout);assert.equal(output.simulated,true);assert.equal(output.audioPlayed,false);assert.equal(output.accepted,true);assert.equal(output.history.length,1);});

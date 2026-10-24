@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    ".gitattributes",
+    ".github/workflows/test.yml",
+    ".gitignore",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.en.md",
+    "README.md",
+    "THIRD_PARTY_NOTICES.md",
+    "core/audio-diagnostics.cjs",
+    "core/audio-file-index.cjs",
+    "core/audio-import.cjs",
+    "core/index.cjs",
+    "core/messages.cjs",
+    "core/settings-store.cjs",
+    "core/song-diagnostics.cjs",
+    "core/song-requests.cjs",
+    "docs/ADAPTERS.md",
+    "examples/replay.cjs",
+    "package.json",
+    "scripts/archive.cjs",
+    "scripts/audit-source.cjs",
+    "scripts/verify.cjs",
+    "source-files.json",
+    "test/example.test.cjs",
+    "test/song-requests.test.cjs"
+  ]
+}
