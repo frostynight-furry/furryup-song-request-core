@@ -2,6 +2,12 @@
 
 [English](README.en.md) · MIT · **0.1.0 预览版**
 
+由[夜霜（FrostyNight）](https://github.com/frostynight-furry)发起并维护，源自 [FurryUP Studio](https://frostynight.top/furryup) 的通用组件。
+
+**主播使用完整产品：**[FurryUP Studio 官网](https://frostynight.top/furryup) · [下载安装包](https://github.com/frostynight-furry/furryup-studio-releases)
+
+**开发者接入本组件：**[快速开始](#运行) · [适配器契约](docs/ADAPTERS.md)
+
 从 FurryUP Studio 拆出的 Node.js 点歌引擎：解析弹幕指令、匹配歌名与歌手、串行排队、取消、同曲换源、下一首预检与阶段诊断。无需 Electron，无运行时 npm 依赖。
 
 本仓库提供机制和适配接口。它不连接直播平台，不包含 QQ / 网易云 / 汽水登录或搜索服务，也不提供真实音频播放器。演示中的音乐服务和播放完成信号都是合成数据。**真实直播连续点歌、完整歌曲播放、账号权益和 OBS 收音尚未通过本项目验收。**
@@ -47,3 +53,23 @@ await engine.accept({
 - 有界阶段记录和固定错误码。管理快照含观众标识与请求内容，不能原样作为公开 OBS 数据；显示层应自行选择公开字段。
 
 接口说明见 [ADAPTERS.md](docs/ADAPTERS.md)。测试均使用合成事件和播放器；宿主必须执行真实音频、断连、取消、权限和长期运行验收。此源码发布不会更新 FurryUP Studio 安装器或插件渠道。
+
+## 关于夜霜与 FurryUP Studio
+
+夜霜（FrostyNight）发起并维护本仓库，也开发面向主播的 FurryUP Studio。FurryUP Studio 将直播工作台、助手、桌面陪伴与投屏等工作流组织在统一桌面界面中，并提供安装包及应用、插件更新入口。产品介绍见[官网](https://frostynight.top/furryup)，可用版本和更新记录见[下载仓库](https://github.com/frostynight-furry/furryup-studio-releases)。
+
+本仓库是供开发者集成的独立点歌引擎，不是开箱即用的完整点歌产品。实际音源、账号服务、播放器和直播事件接入由宿主实现；独立组件的源码发布不表示公开版 FurryUP Studio 已同步包含该版本或新功能。
+
+## 自愿致谢
+
+如果本组件对你的项目有帮助，欢迎在 README、文档或关于页注明使用了 FurryUP Song Request Core，并链接项目、维护者与 FurryUP Studio。可直接复制下面的中文或英文示例：
+
+```markdown
+本项目使用 [FurryUP Song Request Core](https://github.com/frostynight-furry/furryup-song-request-core)，由[夜霜（FrostyNight）](https://github.com/frostynight-furry)发起并维护。了解其来源产品：[FurryUP Studio](https://frostynight.top/furryup)。
+```
+
+```markdown
+This project uses [FurryUP Song Request Core](https://github.com/frostynight-furry/furryup-song-request-core), initiated and maintained by [FrostyNight (夜霜)](https://github.com/frostynight-furry). Learn about the product it originated from: [FurryUP Studio](https://frostynight.top/furryup).
+```
+
+上述致谢和链接完全自愿，不增加任何 [MIT 许可](LICENSE)条件。MIT 对软件副本或重要部分保留版权及许可声明的要求仍然有效。使用本组件或添加致谢不表示夜霜或 FurryUP Studio 对你的项目提供官方背书。
