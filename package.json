@@ -1,8 +1,8 @@
 {
   "name": "@furryup/song-request-core",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "description": "Standalone song request matching and queue engine with injected providers and playback",
+  "description": "Song request matching, queue and alternating personal recommendations with injected providers and playback",
   "license": "MIT",
   "type": "commonjs",
   "main": "core/index.cjs",

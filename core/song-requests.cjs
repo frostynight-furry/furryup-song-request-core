@@ -146,7 +146,8 @@ function selectMatchingTracks(query, tracks) {
       if (trackTitle === title) score = 1;
       // Whitespace is ambiguous in English titles. Compare every actual word boundary to metadata.
       for (let split = 1; split < words.length; split++) {
-        if (matchText(words.slice(0, split).join(' ')) === trackTitle && artistMatches(track.artist, words.slice(split).join(' '))) score = 3;
+        const artist = artistMatches(track.artist, words.slice(split).join(' '));
+        if (matchText(words.slice(0, split).join(' ')) === trackTitle && artist) score = Math.max(score, artist + 2);
       }
     }
     return score;
@@ -425,7 +426,7 @@ class SongRequests extends EventEmitter {
       return deny(error.code === 'SONG_QUERY_INVALID' ? '请按“歌名 + 歌手”填写点歌内容' : '歌曲名称须为 1～200 个字符');
     }
     this.prune();
-    if (this.queue.length + (this.current ? 1 : 0) >= this.settings.maxQueue) return deny('点歌队列已满');
+    if (this.queue.filter(item => !item.recommendation).length + (this.current && !this.current.recommendation ? 1 : 0) >= this.settings.maxQueue) return deny('点歌队列已满');
     const key = identity(context), now = this.now(), prior = key && this.recent.get(key);
     if (!context.manual && !value.fixedGift && prior && now - prior.at < this.settings.cooldownSeconds * 1000) return deny('点歌冷却中');
     const ticket = !context.manual && !value.fixedGift && config?.giftRequired ? this.takeCredit(key) : null;

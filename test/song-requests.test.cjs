@@ -7,7 +7,7 @@ const os = require('node:os');
 const path = require('node:path');
 const { EventEmitter } = require('node:events');
 const { setImmediate: nextTurn } = require('node:timers/promises');
-const { SongRequests, defaults, validateSettings, matchFormat, parseSongQuery, selectMatchingTracks } = require('../core/song-requests.cjs');
+const { SongRequests, defaults, validateSettings, matchFormat, parseSongQuery, selectMatchingTracks } = require('../core/index.cjs');
 
 function deferred() {
   let resolve, reject;

@@ -1,6 +1,6 @@
 # FurryUP Song Request Core
 
-[中文](README.md) · MIT · **0.1.0 preview**
+[中文](README.md) · MIT · **0.2.0 preview**
 
 Initiated and maintained by [FrostyNight (夜霜)](https://github.com/frostynight-furry), this reusable component originated in [FurryUP Studio](https://frostynight.top/furryup).
 
@@ -10,7 +10,7 @@ Initiated and maintained by [FrostyNight (夜霜)](https://github.com/frostynigh
 
 A dependency-free Node.js song request engine extracted from FurryUP Studio. It provides command parsing, guarded title/artist matching, sequential admission, queue controls, viewer withdrawal, optional gift credits, cross-provider fallback, next-track preparation and bounded diagnostics.
 
-The host injects providers and a player, and supplies normalized events. Platform/provider identifiers are supported routing labels, not included integrations. No live-chat collector, music API client, account login, cookies, real music or Electron player is shipped. Live broadcasts, full-track playback, account entitlements and OBS audio capture have not been validated for this release. Do not treat preview test results as production readiness.
+The host injects providers and a player, and supplies normalized events. Platform/provider identifiers are supported routing labels, not included integrations. No live-chat collector, music API client, account login, cookies, real music or Electron player is shipped. FUS has completed one real-account recommendation/request rotation with actual audio ending, muted at 8x playback speed. Live broadcasts, all account/song entitlements and OBS capture still require validation. See [0.2.0 changes and verification scope](docs/CHANGES-0.2.0.md).
 
 ## Developer quick start
 
@@ -43,7 +43,15 @@ await engine.accept({
 
 Song requests are disabled by default and must be enabled explicitly. The engine accepts `点歌 song artist` and `点歌+song+artist`; a custom format must contain exactly one `{song}` placeholder. Matching supports official aliases and omission of a single Live suffix while still checking the artist and rejecting ambiguous matches, wrong versions, and wrong artists.
 
-## Initial release scope
+## Personal recommendation rotation
+
+Implement `providers.recommend(provider, { signal })` to return authorized personal recommendation metadata for `qq` and `netease`. Once the player is ready, call `engine.startRecommendations()` and `engine.configureRecommendations(true)`; song settings must also enable requests and automatic playback. This optional feature defaults to off.
+
+Idle playback alternates one recommendation per provider. An incoming request waits for the current recommendation to finish; audience requests then drain in order before recommendations resume at the next source. Recommendations do not consume audience capacity. Pause, emergency stop, cancellation, retry cooldowns and recent-track deduplication apply. The enabled flag and next source persist separately in `music-recommendations.json`.
+
+Space-separated requests now prefer an entire artist match over a matching duet member. Manual search still returns all versions, and unresolved ambiguity/version checks remain. Read the [recommendation adapter contract](docs/ADAPTERS.md#personal-recommendations) for authentication, caching and lifecycle responsibilities.
+
+## Component scope
 
 - Four normalized platform identifiers: `bilibili`, `douyin`, `kuaishou`, and `wechat`. These are event fields, not bundled platform collectors.
 - Source identifiers: `local`, `netease`, `qq`, and `qishui`. `auto` searches sources marked as configured by the host. These names do not imply that the corresponding service is integrated.
