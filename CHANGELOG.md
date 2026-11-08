@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0 (2026-11-08)
+
+- 新增 `core/song-lyrics.cjs`：支持 LRC 歌词解析（`parseLrc`，支持 `[offset]` 全局偏移与同行多时间标签）、四行歌词窗口二分检索与前奏/间奏/尾奏区间识别（`stanza`）、以及同名 `.lrc` 旁路字幕文件多编码读取（`sidecar` / `readSidecar`，自动识别 UTF-8、UTF-16LE/BE 与 GB18030）。
+- 新增 `core/song-output.cjs`：提供 `projectSongOutput` 纯函数，用于向 OBS 浏览器源安全投影当前播放曲目、待播队列与点歌指令提示。
+- 新增 `test/lyrics.test.cjs` 单元测试。
+
 ## 0.2.0 — 2026-10-31 — Preview source
 
 - Add opt-in QQ / NetEase recommendation rotation through an injected `providers.recommend` method. Finish the current recommendation, drain audience requests in order, then resume the next source.

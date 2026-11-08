@@ -1,6 +1,6 @@
 # FurryUP Song Request Core
 
-[中文](README.md) · MIT · **0.2.0 preview**
+[中文](README.md) · MIT · **0.3.0 preview**
 
 Initiated and maintained by [FrostyNight (夜霜)](https://github.com/frostynight-furry), this reusable component originated in [FurryUP Studio](https://frostynight.top/furryup).
 

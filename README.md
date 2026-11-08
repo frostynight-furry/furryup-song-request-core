@@ -1,6 +1,6 @@
 # FurryUP Song Request Core
 
-[English](README.en.md) · MIT · **0.2.0 预览版**
+[English](README.en.md) · MIT · **0.3.0 预览版**
 
 由[夜霜（FrostyNight）](https://github.com/frostynight-furry)发起并维护，源自 [FurryUP Studio](https://frostynight.top/furryup) 的通用组件。
 

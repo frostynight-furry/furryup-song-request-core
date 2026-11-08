@@ -5,3 +5,5 @@ The engine and tests were extracted and adapted from original FurryUP Studio cod
 There are no third-party runtime dependencies. Built-in Node.js modules are provided by the user's Node installation. Audit/archive tooling is reused from [FurryUP Live Assistant Core](https://github.com/frostynight-furry/furryup-live-assistant-core), MIT, by the same maintainer.
 
 Earlier design comparisons included Yumi Player (request feedback) and AwooMusicBot (queue withdrawal and OBS display). Their implementation code, API clients and player connectors are not included. This repository contains no QQ, NetEase or Qishui API implementation and makes no claim to provide those services.
+
+LRC timestamp pattern in `core/song-lyrics.cjs` is adapted from `music-metadata` 11.16.1 (MIT License, Copyright (c) 2024 Borewit).

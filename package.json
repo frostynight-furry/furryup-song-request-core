@@ -1,6 +1,6 @@
 {
   "name": "@furryup/song-request-core",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "description": "Song request matching, queue and alternating personal recommendations with injected providers and playback",
   "license": "MIT",
